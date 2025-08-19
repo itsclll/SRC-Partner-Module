@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SRV Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-piechart-outlabels@1.1.0/dist/chartjs-plugin-piechart-outlabels.min.js"></script>
+</head>
+<body class="bg-gra y-100 font-sans">
+
+  <div class="flex min-h-screen">
+
+  <!-- Ito yung start ng code for Sidebar -->
+  <aside class="w-64 bg-white text-gray-800 flex flex-col">
+  <div class="flex items-center space-x-4 px-6 py-4 border-b border-gray-400 bg-blue-700">
+    <img src="../images/homesidebar.png" alt="Profile" class="w-12 h-12 rounded-full border-4 border-white mb-1">
+    <span class="font-bold text-lg text-white">Partner Portal</span>
+  </div>
+
+  <!-- Profile -->
+  <div class="px-6 py-6 border-b border-gray-300">
+    <div class="flex items-center space-x-4">
+      <img src="../images/personimage.png" alt="Profile" class="w-14 h-14 rounded-full border-2 border-gray-400 mb-0">
+      <div>
+        <p class="font-semibold">Regional Office</p>
+        <p class="text-sm text-gray-500">Cordillera</p>
+      </div>
+    </div>
+  </div>
+
+    <!-- Menu -->
+  <nav class="flex-1 px-4 py-6 space-y-2">
+    <a href="dashboard.html" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 bg-gray-50">
+      <span class="ml-3">Dashboard</span>
+    </a>
+    <a href="analytics.html" class="flex items-center px-3 py-2 rounded hover:bg-gray-100">
+      <span class="ml-3">Analytics</span>
+    </a>
+    <a href="#" class="flex items-center px-3 py-2 rounded hover:bg-gray-100">
+      <span class="ml-3">Reports</span>
+    </a>
+  </nav>
+
+    <!-- Footer -->
+    <div class="px-4 py-4 border-t border-gray-300">
+      <a href="#" class="flex items-center px-3 py-2 rounded hover:bg-gray-100"> <span class="ml-3">Settings</span></a>
+      <a href="#" class="flex items-center px-3 py-2 rounded hover:bg-gray-100"> <span class="ml-3">Sign Out</span></a>
+    </div>
+  </aside>
+
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+
+    <!-- Topbar -->
+    <header class="flex justify-between items-center bg-blue-700 px-8 py-4 shadow">
+      <div>
+        <h1 class="text-2xl font-bold text-white">TESDA CAR Dashboard</h1>
+        <p class="text-white text-sm">Monitoring skills development and employment outcomes</p>
+      </div>
+      <div class="flex items-center space-x-4">
+    
+        <button class="p-2 bg-blue-600 text-white rounded-full">🔔</button>
+        <img src="../images/personimage.png" class="w-9 h-9 rounded-full border" alt="User">
+      </div>
+    </header>
+
+      <!-- Dashboard Body -->
+      <main class="p-8 flex-1 overflow-y-auto">
+
+        <!-- Filters -->
+        <div class="bg-white p-4 rounded-lg shadow mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <select class="border p-2 rounded-lg">
+            <option>Last 3 Months</option>
+            <option>Last 6 Months</option>
+            <option>Last Year</option>
+          </select>
+          <select class="border p-2 rounded-lg">
+            <option>All Programs</option>
+            <option>Technical Skills</option>
+            <option>Soft Skills</option>
+          </select>
+          <select class="border p-2 rounded-lg">
+            <option>All Provinces</option>
+            <option>Benguet</option>
+            <option>Ifugao</option>
+            <option>Abra</option>
+          </select>
+        </div>
+
+        <!-- Ito yung 4 Stat Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+          <!-- Employment Rate -->
+          <div class="bg-white p-6 rounded-lg shadow flex items-center">
+            <div class="bg-green-500 rounded-lg p-3 mr-4 flex items-center justify-center">
+              <img src="../images/employmentrateicon.png" class="w-7 h-7 " alt="employmentrateicon">
+            </div>
+            <div>
+              <p class="text-2xl font-bold text-gray-900">78.5%</p>
+              <p class="text-gray-500">Employment Rate</p>
+              <p class="text-green-600 text-sm flex items-center mt-1">
+               <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 16l7-7 7 7"/>
+              </svg>
+                +5.2%
+              </p>
+            </div>
+          </div>
+          <!-- Income Growth -->
+          <div class="bg-white p-6 rounded-lg shadow flex items-center">
+            <div class="bg-blue-600 rounded-lg p-3 mr-4 flex items-center justify-center">
+              <img src="../images/incomerateicon.png" class="w-7 h-7 " alt="incomerateicon">
+            </div>
+            <div>
+              <p class="text-2xl font-bold text-gray-900">₱24,500</p>
+              <p class="text-gray-500">Income Growth</p>
+              <p class="text-green-600 text-sm flex items-center mt-1">
+              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 16l7-7 7 7"/>
+              </svg>
+                +12.8%
+              </p>
+            </div>
+          </div>
+          <!-- Satisfaction Score -->
+          <div class="bg-white p-6 rounded-lg shadow flex items-center">
+            <div class="bg-yellow-500 rounded-lg p-3 mr-4 flex items-center justify-center">
+              <img src="../images/satisfactionscoreicon.png" class="w-7 h-7 " alt="satisfactionscoreicon">
+            </div>
+            <div>
+              <p class="text-2xl font-bold text-gray-900">4.7/5</p>
+              <p class="text-gray-500">Satisfaction Score</p>
+              <p class="text-green-600 text-sm flex items-center mt-1">
+              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 16l7-7 7 7"/>
+              </svg>
+                +0.3
+              </p>
+            </div>
+          </div>
+          <!-- Active Participants -->
+          <div class="bg-white p-6 rounded-lg shadow flex items-center">
+            <div class="bg-purple-500 rounded-lg p-3 mr-4 flex items-center justify-center">
+              <img src="../images/activeparticipanticon.png" class="w-7 h-7 " alt="activeparticipanticon">
+            </div>
+            <div>
+              <p class="text-2xl font-bold text-gray-900">1,247</p>
+              <p class="text-gray-500">Active Participants</p>
+              <p class="text-green-600 text-sm flex items-center mt-1">
+              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 16l7-7 7 7"/>
+              </svg>
+                +23
+              </p>
+            </div>
+          </div>
+        </div>
+
+      <!-- This section is for the Charts -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- This is for the for Employment Rate Chart -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h2 class="text-lg font-semibold mb-4">Employment Trend</h2>
+          <canvas id="employmentChart"></canvas>
+        </div>
+
+        <!-- This is for the for Program Disrtibution Chart -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h2 class="text-lg font-semibold mb-4">Program Distribution</h2>
+          <canvas id="programChart"></canvas>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <!-- This is for the Top Skills by Employment Rate -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h2 class="text-lg font-semibold mb-4">Top Skills by Employment Rate</h2>
+          <canvas id="skillsChart"></canvas>
+        </div>
+
+        <!-- This is for the Average Income Growth -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h2 class="text-lg font-semibold mb-4">Average Income Growth</h2>
+          <canvas id="incomeChart"></canvas>
+        </div>
+      </div>
+
+        <!-- This is for the Executive Summary Section -->
+        <div class="bg-white p-6 rounded-lg shadow mt-6 mb-8">
+          <h2 class="text-lg font-semibold mb-4">Executive Summary</h2>
+          <p><span class="font-bold">Performance Highlights:</span> The Cordillera Administrative Region has demonstrated exceptional progress in skills development and employment outcomes. Employment rates have increased by 5.2% quarter-over-quarter, reaching 78.5% - surpassing the national average of 72%.</p>
+          <p class="mt-2"><span class="font-bold">Income Impact:</span> Participants have experienced significant income growth, with average earnings increasing from ₱8,500 pre-training to ₱24,500 twelve months post-completion - a remarkable 188% increase.</p>
+          <p class="mt-2"><span class="font-bold">Top Performing Programs:</span> Computer Programming leads with 88% employment rate, followed by Electrical Installation at 82%. Technical skills programs continue to show strong market demand.</p>
+          <p class="mt-2"><span class="font-bold">Regional Insights:</span> Benguet province shows the highest participation rates, while Mountain Province demonstrates the strongest post-training income growth. Satisfaction scores remain consistently high at 4.7/5.</p>
+        </div>
+
+        <!-- Quick Actions Section -->
+        <div class="bg-white p-6 rounded-lg shadow mb-6">
+          <h2 class="text-lg font-semibold mb-4">Quick Actions</h2>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <!-- Export Report -->
+            <div class="border-2 border-dashed rounded-lg flex flex-col items-center justify-center py-8 hover:bg-gray-50 cursor-pointer transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+              </svg>
+              <span class="text-gray-600 font-medium">Export Report</span>
+            </div>
+            <!-- Email Summary -->
+            <div class="border-2 border-dashed rounded-lg flex flex-col items-center justify-center py-8 hover:bg-gray-50 cursor-pointer transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 0a4 4 0 01-8 0m8 0V8a4 4 0 00-8 0v4m8 0l-8 8"/>
+              </svg>
+              <span class="text-gray-600 font-medium">Email Summary</span>
+            </div>
+            <!-- Schedule Review -->
+            <div class="border-2 border-dashed rounded-lg flex flex-col items-center justify-center py-8 hover:bg-gray-50 cursor-pointer transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10m-10 4h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              <span class="text-gray-600 font-medium">Schedule Review</span>
+            </div>
+            <!-- Customize View -->
+            <div class="border-2 border-dashed rounded-lg flex flex-col items-center justify-center py-8 hover:bg-gray-50 cursor-pointer transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-600 font-medium">Customize View</span>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+    <!-- Hindi na ako gumawa ng bagong files andito na lahat ng scripts -->
+    <script>
+
+      // Employment Line Chart
+      const ctx1 = document.getElementById('employmentChart').getContext('2d');
+      new Chart(ctx1, {
+        type: 'line',
+        data: {
+          labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+          datasets: [
+            {
+              label: 'Employed %',
+              data: [65,68,72,75,78,79],
+              borderColor: '#10B981',
+              backgroundColor: '#10B981',
+              fill: false,
+              tension: 0.3,
+              pointBackgroundColor: '#10B981',
+              pointBorderColor: '#10B981'
+            },
+            {
+              label: 'Unemployed %',
+              data: [35,32,28,25,22,21],
+              borderColor: '#EF4444',
+              backgroundColor: '#EF4444',
+              fill: false,
+              tension: 0.3,
+              pointBackgroundColor: '#EF4444',
+              pointBorderColor: '#EF4444'
+            }
+          ]
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: true,
+              position: 'bottom',
+              labels: {
+                color: '#111827',
+                font: { size: 16 }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { color: '#111827', font: { size: 14 } }
+            },
+            y: {
+              grid: { color: '#e5e7eb' },
+              ticks: { color: '#111827', font: { size: 14 } }
+            }
+          }
+        }
+      });
+
+      // Program Pie Chart
+      const ctx2 = document.getElementById('programChart').getContext('2d');
+      new Chart(ctx2, {
+        type: 'pie',
+        data: {
+          labels: [
+            'Technical Skills: 45%',
+            'Entrepreneurship: 25%',
+            'Digital Literacy: 10%',
+            'Soft Skills: 20%'
+          ],
+          datasets: [{
+            data: [45,25,10,20],
+            backgroundColor: [
+              '#3B82F6', // blue
+              '#10B981', // green
+              '#6366F1', // purple
+              '#F59E0B'  // orange
+            ],
+            borderWidth: 2,
+            borderColor: '#fff'
+          }]
+        },
+        options: {
+          plugins: {
+            legend: { display: false },
+            outlabels: {
+              text: '%l',
+              color: ['#3B82F6', '#10B981', '#6366F1', '#F59E0B'],
+              stretch: 35,
+              font: {
+                resizable: true,
+                minSize: 12,
+                maxSize: 16
+              },
+              lineColor: ['#3B82F6', '#10B981', '#6366F1', '#F59E0B'],
+              lineWidth: 2,
+              padding: 4,
+              backgroundColor: 'transparent',
+              borderRadius: 0,
+              fontWeight: 'bold'
+            }
+          }
+        }
+      });
+
+      // Top Skills by Employment Rate (Horizontal Bar Chart)
+      const skillsCtx = document.getElementById('skillsChart').getContext('2d');
+      new Chart(skillsCtx, {
+        type: 'bar',
+        data: {
+          labels: [
+            'Computer Programming',
+            'Food Processing',
+            'Construction',
+            'Automotive Servicing',
+            'Electrical Installation'
+          ],
+          datasets: [{
+            label: 'Employment Rate',
+            data: [88, 80, 76, 74, 82],
+            backgroundColor: '#3B82F6'
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          scales: {
+            x: {
+              beginAtZero: true,
+              grid: { color: '#e5e7eb' },
+              ticks: { color: '#111827', font: { size: 14 } }
+            },
+            y: {
+              grid: { color: '#e5e7eb' },
+              ticks: { color: '#111827', font: { size: 14 } }
+            }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+
+      // Average Income Growth (Vertical Bar Chart)
+      const incomeCtx = document.getElementById('incomeChart').getContext('2d');
+      new Chart(incomeCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Pre-Training', '3 Months', '6 Months', '12 Months'],
+          datasets: [{
+            label: 'Income',
+            data: [8500, 13000, 19000, 24500],
+            backgroundColor: '#10B981'
+          }]
+        },
+        options: {
+          scales: {
+            x: {
+              grid: { color: '#e5e7eb' },
+              ticks: { color: '#111827', font: { size: 14 } }
+            },
+            y: {
+              beginAtZero: true,
+              grid: { color: '#e5e7eb' },
+              ticks: { color: '#111827', font: { size: 14 } }
+            }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

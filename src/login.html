@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SRV Partner Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+  <!-- White Background Card -->
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+    
+    <!-- Icon -->
+    <div class="flex justify-center mb-4">
+      <div class="bg-blue-100 text-blue-600 p-4 rounded-full">
+        <img src="../images/companyicon.png" class="w-9 h-9 rounded-full border" alt="User">
+      </div>
+    </div>
+
+    <!-- Title Page -->
+    <h1 class="text-2xl font-bold text-center text-gray-800">Partner Portal</h1>
+    <p class="text-center text-gray-500 mb-6">Access your organization dashboard</p>
+
+    <!-- Login Form -->
+    <form action="dashboard.html" method="get" class="space-y-4">
+
+      <!-- Dropdown -->
+      <div>
+        <label class="block text-gray-700 font-medium">Organization Type</label>
+        <select class="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          <option value="regional">TESDA Regional Office</option>
+          <option value="provincial">TESDA Provincial Office</option>
+          <option value="school">TESDA School</option>
+        </select>
+      </div>
+
+      <!-- Email Address -->
+      <div>
+        <label class="block text-gray-700 font-medium">Email Address</label>
+        <input type="email" placeholder="you@example.com" class="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label class="block text-gray-700 font-medium">Password</label>
+        <input type="password" placeholder="••••••••" class="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+
+      <!-- Button -->
+      <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+        Access Dashboard
+      </button>
+    </form>
+
+    <!-- Footer -->
+    <div class="mt-6 border-t pt-4 text-center text-sm text-gray-500">
+      Authorized Access Only
+      <div class="flex justify-center mt-2 space-x-4">
+        <img src="../images/tesdalogo.png" alt="TESDA Logo" class="h-8">
+        <img src="../images/dictlogo.png" alt="Gov Logo" class="h-8">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

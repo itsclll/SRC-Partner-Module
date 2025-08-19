@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SRV Advanced Analytics Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-piechart-outlabels@1.1.0/dist/chartjs-plugin-piechart-outlabels.min.js"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <div class="flex min-h-screen">
+
+  <!-- Ito yung start ng code for Sidebar -->
+  <aside class="w-64 bg-white text-gray-800 flex flex-col">
+  <div class="flex items-center space-x-4 px-6 py-4 border-b border-gray-400 bg-blue-700">
+    <img src="../images/homesidebar.png" alt="Profile" class="w-12 h-12 rounded-full border-4 border-white mb-1">
+    <span class="font-bold text-lg text-white">Partner Portal</span>
+  </div>
+
+  <!-- Profile -->
+  <div class="px-6 py-6 border-b border-gray-300">
+    <div class="flex items-center space-x-4">
+      <img src="../images/personimage.png" alt="Profile" class="w-14 h-14 rounded-full border-2 border-gray-400 mb-0">
+      <div>
+        <p class="font-semibold">Regional Office</p>
+        <p class="text-sm text-gray-500">Cordillera</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu -->
+  <nav class="flex-1 px-4 py-6 space-y-2">
+    <a href="dashboard.html" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 bg-gray-50">
+      <span class="ml-3">Dashboard</span>
+    </a>
+    <a href="analytics.html" class="flex items-center px-3 py-2 rounded hover:bg-gray-100">
+      <span class="ml-3">Analytics</span>
+    </a>
+    <a href="#" class="flex items-center px-3 py-2 rounded hover:bg-gray-100">
+      <span class="ml-3">Reports</span>
+    </a>
+  </nav>
+
+    <!-- Footer -->
+    <div class="px-4 py-4 border-t border-gray-300">
+      <a href="#" class="flex items-center px-3 py-2 rounded hover:bg-gray-100"> <span class="ml-3">Settings</span></a>
+      <a href="#" class="flex items-center px-3 py-2 rounded hover:bg-gray-100"> <span class="ml-3">Sign Out</span></a>
+    </div>
+  </aside>
+
+
+    <!-- Dito magsisimula yung Main Content -->
+    <div class="flex-1 flex flex-col">
+
+    <!-- Topbar -->
+    <header class="flex justify-between items-center bg-purple-700 px-8 py-4 shadow">
+      <div>
+        <h1 class="text-2xl font-bold text-white">Advanced Analytics Center</h1>
+        <p class="text-white text-sm">Deep insights into program performance and participant outcomes</p>
+      </div>
+      <div class="flex items-center space-x-4">
+    
+        <button class="p-2 bg-blue-600 text-white rounded-full">🔔</button>
+        <img src="../images/personimage.png" class="w-9 h-9 rounded-full border" alt="User">
+      </div>
+    </header>
+
+
+
+  <div class="bg-white rounded-lg shadow p-6 mt-6 mx-4">
+  <!-- Tabs -->
+  <div class="border-b border-gray-200 mb-6">
+    <nav class="flex space-x-8" aria-label="Tabs">
+      <button id="tab-overview" class="py-2 px-1 text-purple-700 border-b-2 border-purple-700 font-semibold focus:outline-none">Overview</button>
+      <button id="tab-cohort" class="py-2 px-1 text-gray-500 hover:text-purple-700 focus:outline-none">Cohort Analysis</button>
+      <button id="tab-skills" class="py-2 px-1 text-gray-500 hover:text-purple-700 focus:outline-none">Skills Demand</button>
+      <button id="tab-regional" class="py-2 px-1 text-gray-500 hover:text-purple-700 focus:outline-none">Regional Performance</button>
+      <button id="tab-retention" class="py-2 px-1 text-gray-500 hover:text-purple-700 focus:outline-none">Program Retention</button>
+    </nav>
+  </div>
+
+  <!-- Overview Tab Content -->
+  <div id="tab-content-overview">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div>
+        <h2 class="text-lg font-semibold mb-2">Income vs Employment Correlation</h2>
+        <canvas id="incomeEmploymentChart" height="220"></canvas>
+      </div>
+      <div>
+        <h2 class="text-lg font-semibold mb-2">Skills Market Demand Trends</h2>
+        <canvas id="skillsDemandChart" height="220"></canvas>
+      </div>
+    </div>
+    
+    <div class="bg-blue-50 rounded-lg p-6">
+      <h3 class="text-lg font-semibold text-blue-900 mb-4">Key Analytics Insights</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <p class="font-bold text-blue-900">Program Performance Correlation</p>
+          <p class="text-blue-900 text-sm mb-4">Strong positive correlation (0.87) between program completion rates and 6-month employment outcomes.</p>
+          <p class="font-bold text-blue-900">Income Growth Pattern</p>
+          <p class="text-blue-900 text-sm">Participants show average 24% income increase within 12 months post-completion.</p>
+        </div>
+        <div>
+          <p class="font-bold text-blue-900">Market Demand Prediction</p>
+          <p class="text-blue-900 text-sm mb-4">Programming and electrical skills show 15% growth trend, suggesting high future demand.</p>
+          <p class="font-bold text-blue-900">Regional Performance</p>
+          <p class="text-blue-900 text-sm">Urban areas show 18% higher employment rates but rural areas have better income growth.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Cohort Analysis Tab Content -->
+<div id="tab-content-cohort" class="hidden">
+  <h2 class="text-lg font-semibold mb-2">Cohort Performance Analysis</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <!-- Employment Outcomes by Cohort -->
+    <div>
+      <h3 class="text-base font-semibold mb-2">Employment Outcomes by Cohort</h3>
+      <canvas id="cohortEmploymentChart" height="220"></canvas>
+      <div class="flex items-center mt-2 space-x-4">
+        <span class="flex items-center text-green-500 font-semibold text-sm">
+          <span class="w-3 h-3 rounded bg-green-500 inline-block mr-1"></span>Employed
+        </span>
+        <span class="flex items-center text-gray-400 font-semibold text-sm">
+          <span class="w-3 h-3 rounded bg-gray-300 inline-block mr-1"></span>Total Participants
+        </span>
+      </div>
+    </div>
+
+    <!-- Average Income by Cohort -->
+    <div>
+      <div class="flex justify-between items-center mb-2">
+        <h3 class="text-base font-semibold">Average Income by Cohort</h3>
+        <select class="border rounded px-2 py-1 text-sm">
+          <option>All Cohorts</option>
+          <!-- Add more options if needed -->
+        </select>
+      </div>
+      <canvas id="cohortIncomeChart" height="220"></canvas>
+    </div>
+  </div>
+
+  <!-- Detailed Cohort Comparison Table -->
+  <div class="bg-white rounded-lg shadow p-4 mt-4">
+    <h3 class="text-base font-semibold mb-2">Detailed Cohort Comparison</h3>
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-2 px-4 text-left font-semibold">COHORT</th>
+            <th class="py-2 px-4 text-left font-semibold">PARTICIPANTS</th>
+            <th class="py-2 px-4 text-left font-semibold">EMPLOYMENT RATE</th>
+            <th class="py-2 px-4 text-left font-semibold">AVG INCOME</th>
+            <th class="py-2 px-4 text-left font-semibold">SATISFACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b">
+            <td class="py-2 px-4 font-bold">Batch 2023-01</td>
+            <td class="py-2 px-4">45</td>
+            <td class="py-2 px-4">84%</td>
+            <td class="py-2 px-4">₱22,500</td>
+            <td class="py-2 px-4">4.8/5</td>
+          </tr>
+          <tr class="border-b">
+            <td class="py-2 px-4 font-bold">Batch 2023-02</td>
+            <td class="py-2 px-4">52</td>
+            <td class="py-2 px-4">79%</td>
+            <td class="py-2 px-4">₱24,000</td>
+            <td class="py-2 px-4">4.6/5</td>
+          </tr>
+          <tr class="border-b">
+            <td class="py-2 px-4 font-bold">Batch 2023-03</td>
+            <td class="py-2 px-4">38</td>
+            <td class="py-2 px-4">85%</td>
+            <td class="py-2 px-4">₱28,000</td>
+            <td class="py-2 px-4">4.7/5</td>
+          </tr>
+          <tr class="border-b">
+            <td class="py-2 px-4 font-bold">Batch 2023-04</td>
+            <td class="py-2 px-4">61</td>
+            <td class="py-2 px-4">68%</td>
+            <td class="py-2 px-4">₱23,000</td>
+            <td class="py-2 px-4">4.5/5</td>
+          </tr>
+          <tr>
+            <td class="py-2 px-4 font-bold">Batch 2024-01</td>
+            <td class="py-2 px-4">47</td>
+            <td class="py-2 px-4">75%</td>
+            <td class="py-2 px-4">₱27,000</td>
+            <td class="py-2 px-4">4.6/5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Skills Demand Tab Content -->
+<div id="tab-content-skills" class="hidden">
+  <h2 class="text-lg font-semibold mb-2">Skills Market Demand Analysis</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Left Column: Charts -->
+    <div>
+      <h3 class="font-semibold mb-2">Skills Demand Trends Over Time</h3>
+      <canvas id="skillsDemandTrendsChart" height="220"></canvas>
+      <h3 class="font-semibold mt-8 mb-2">Skills Gap Analysis</h3>
+      <canvas id="skillsGapChart" height="220"></canvas>
+      <div class="flex space-x-6 mt-2 text-sm">
+        <span class="flex items-center text-gray-400 font-semibold">
+          <span class="w-3 h-3 rounded bg-gray-300 inline-block mr-1"></span>Current Supply
+        </span>
+        <span class="flex items-center text-blue-500 font-semibold">
+          <span class="w-3 h-3 rounded bg-blue-500 inline-block mr-1"></span>Market Demand
+        </span>
+        <span class="flex items-center text-red-500 font-semibold">
+          <span class="w-3 h-3 rounded bg-red-500 inline-block mr-1"></span>Skills Gap
+        </span>
+      </div>
+    </div>
+    <!-- Right Column: Rankings & Forecast -->
+    <div>
+      <h3 class="font-semibold mb-2">Current Market Demand Ranking</h3>
+      <div class="space-y-4 mb-8">
+        <div class="bg-white rounded-lg shadow p-4 flex items-center justify-between">
+          <div class="flex items-center">
+            <span class="w-3 h-3 rounded-full bg-blue-500 mr-2"></span>
+            <span class="font-bold">Computer Programming</span>
+            <span class="ml-2 text-gray-500">Market Demand: 99%</span>
+          </div>
+          <span class="text-green-600 font-semibold">+18% <span class="text-xs">YoY Growth</span></span>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 flex items-center justify-between">
+          <div class="flex items-center">
+            <span class="w-3 h-3 rounded-full bg-green-500 mr-2"></span>
+            <span class="font-bold">Electrical Installation</span>
+            <span class="ml-2 text-gray-500">Market Demand: 94%</span>
+          </div>
+          <span class="text-green-600 font-semibold">+12% <span class="text-xs">YoY Growth</span></span>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 flex items-center justify-between">
+          <div class="flex items-center">
+            <span class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></span>
+            <span class="font-bold">Automotive Servicing</span>
+            <span class="ml-2 text-gray-500">Market Demand: 88%</span>
+          </div>
+          <span class="text-green-600 font-semibold">+15% <span class="text-xs">YoY Growth</span></span>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 flex items-center justify-between">
+          <div class="flex items-center">
+            <span class="w-3 h-3 rounded-full bg-red-500 mr-2"></span>
+            <span class="font-bold">Construction Skills</span>
+            <span class="ml-2 text-gray-500">Market Demand: 83%</span>
+          </div>
+          <span class="text-green-600 font-semibold">+8% <span class="text-xs">YoY Growth</span></span>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 flex items-center justify-between">
+          <div class="flex items-center">
+            <span class="w-3 h-3 rounded-full bg-purple-500 mr-2"></span>
+            <span class="font-bold">Food Processing</span>
+            <span class="ml-2 text-gray-500">Market Demand: 71%</span>
+          </div>
+          <span class="text-green-600 font-semibold">+22% <span class="text-xs">YoY Growth</span></span>
+        </div>
+      </div>
+      <h3 class="font-semibold mb-2">Emerging Skills Forecast</h3>
+      <div class="space-y-4">
+        <div class="bg-white rounded-lg shadow p-4 flex items-center">
+          <span class="bg-yellow-100 text-yellow-600 p-2 rounded-full mr-3">🌞</span>
+          <div>
+            <span class="font-bold">Solar Panel Installation</span>
+            <div class="text-sm text-gray-500">High Growth Expected - +45% by 2025</div>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 flex items-center">
+          <span class="bg-blue-100 text-blue-600 p-2 rounded-full mr-3">📱</span>
+          <div>
+            <span class="font-bold">Digital Marketing</span>
+            <div class="text-sm text-gray-500">Rapid Growth - +38% by 2025</div>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 flex items-center">
+          <span class="bg-green-100 text-green-600 p-2 rounded-full mr-3">📶</span>
+          <div>
+            <span class="font-bold">IoT Device Maintenance</span>
+            <div class="text-sm text-gray-500">Emerging Field - +52% by 2025</div>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 flex items-center">
+          <span class="bg-purple-100 text-purple-600 p-2 rounded-full mr-3">🛒</span>
+          <div>
+            <span class="font-bold">E-commerce Management</span>
+            <div class="text-sm text-gray-500">High Demand - +41% by 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills Development Recommendations -->
+  <div class="bg-blue-50 rounded-lg p-6 mt-8 border border-blue-200">
+    <h3 class="font-semibold mb-4 text-blue-900">Skills Development Recommendations</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <p class="font-bold text-blue-900 mb-2">High Priority Skills</p>
+        <p class="text-blue-900 text-sm mb-4">Focus on programming and digital skills training - showing 99% market demand with significant skills gap.</p>
+        <p class="font-bold text-blue-900 mb-2 flex items-center"><span class="mr-2"></span>Training Capacity</p>
+        <p class="text-blue-900 text-sm">Increase electrical and automotive program capacity to meet sustained high demand.</p>
+      </div>
+      <div>
+        <p class="font-bold text-blue-900 mb-2">Emerging Opportunities</p>
+        <p class="text-blue-900 text-sm mb-4">Solar panel installation and IoT maintenance represent new growth areas with limited competition.</p>
+        <p class="font-bold text-blue-900 mb-2 flex items-center"><span class="mr-2"></span>Short-term Action</p>
+        <p class="text-blue-900 text-sm">Launch digital marketing and e-commerce courses to capture immediate market opportunities.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Regional Tab Content -->
+  <div id="tab-content-regional" class="hidden">
+  <h2 class="text-lg font-semibold mb-2">Regional Performance Comparison</h2>
+  <div class="flex flex-col items-center">
+    <div class="w-full md:w-4/5" style="max-width:900px;">
+      <canvas id="regionalPerformanceChart" height="220"></canvas>
+    </div>
+    <div class="flex items-center mt-2 space-x-4">
+      <span class="flex items-center text-blue-600 font-semibold text-sm">
+        <span class="w-3 h-3 rounded bg-blue-600 inline-block mr-1"></span>Employment Rate %
+      </span>
+      <span class="flex items-center text-green-500 font-semibold text-sm">
+        <span class="w-3 h-3 rounded bg-green-500 inline-block mr-1"></span>Total Participants
+      </span>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+    <!-- Benguet -->
+    <div class="bg-white rounded-lg shadow p-4">
+      <h4 class="font-semibold mb-2">Benguet</h4>
+      <p>Employment Rate: <span class="font-bold">82%</span></p>
+      <p>Avg Income: <span class="font-bold">₱26,800</span></p>
+      <p>Satisfaction: <span class="font-bold">4.8/5</span></p>
+      <p>Participants: <span class="font-bold">245</span></p>
+    </div>
+    <!-- Mountain Province -->
+    <div class="bg-white rounded-lg shadow p-4">
+      <h4 class="font-semibold mb-2">Mountain Province</h4>
+      <p>Employment Rate: <span class="font-bold">75%</span></p>
+      <p>Avg Income: <span class="font-bold">₱24,200</span></p>
+      <p>Satisfaction: <span class="font-bold">4.6/5</span></p>
+      <p>Participants: <span class="font-bold">156</span></p>
+    </div>
+    <!-- Kalinga -->
+    <div class="bg-white rounded-lg shadow p-4">
+      <h4 class="font-semibold mb-2">Kalinga</h4>
+      <p>Employment Rate: <span class="font-bold">78%</span></p>
+      <p>Avg Income: <span class="font-bold">₱23,500</span></p>
+      <p>Satisfaction: <span class="font-bold">4.7/5</span></p>
+      <p>Participants: <span class="font-bold">189</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- Retention Tab Content -->
+<div id="tab-content-retention" class="hidden">
+  <h2 class="text-lg font-semibold mb-2">Program Retention & Completion Analysis</h2>
+  <div class="flex flex-col items-center">
+    <div class="w-full md:w-4/5" style="max-width:900px;">
+      <canvas id="retentionChart" height="260"></canvas>
+    </div>
+    <div class="flex items-center mt-2 space-x-4">
+      <span class="flex items-center text-blue-600 font-semibold text-sm">
+        <span class="w-3 h-3 rounded bg-blue-600 inline-block mr-1"></span>Completed
+      </span>
+      <span class="flex items-center text-green-500 font-semibold text-sm">
+        <span class="w-3 h-3 rounded bg-green-500 inline-block mr-1"></span>Employed
+      </span>
+      <span class="flex items-center text-gray-400 font-semibold text-sm">
+        <span class="w-3 h-3 rounded bg-gray-300 inline-block mr-1"></span>Enrolled
+      </span>
+    </div>
+  </div>
+
+  <div class="bg-yellow-50 rounded-lg p-6 mt-6 border border-yellow-200">
+    <h3 class="font-semibold mb-4">Retention Improvement Recommendations</h3>
+    <ul class="space-y-2 text-yellow-900">
+      <li>
+        <span class="font-bold"> → Automotive Servicing:</span>
+        Consider adding more hands-on practice sessions to improve completion rates.
+      </li>
+      <li>
+        <span class="font-bold"> → Construction:</span>
+        Implement mentorship programs to bridge skills gap between training and employment.
+      </li>
+      <li>
+        <span class="font-bold"> → Food Processing:</span>
+        Partner with local businesses for internship opportunities to improve employment outcomes.
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+
+
+
+  <script>
+
+    // Define all tabs and their corresponding content
+    const tabs = [
+      { btn: 'tab-overview', content: 'tab-content-overview' },
+      { btn: 'tab-cohort', content: 'tab-content-cohort' },
+      { btn: 'tab-skills', content: 'tab-content-skills' }, // <-- Add this line
+      { btn: 'tab-regional', content: 'tab-content-regional' },
+      { btn: 'tab-retention', content: 'tab-content-retention' }
+    ];
+
+  tabs.forEach(tab => {
+    const btn = document.getElementById(tab.btn);
+    const content = document.getElementById(tab.content);
+
+    if (!btn || !content) return; 
+
+    btn.addEventListener('click', () => {
+      tabs.forEach(t => {
+        const b = document.getElementById(t.btn);
+        const c = document.getElementById(t.content);
+
+        if (t.btn === tab.btn) {
+          b.classList.add('text-purple-700', 'border-b-2', 'border-purple-700', 'font-semibold');
+          b.classList.remove('text-gray-500');
+          c.classList.remove('hidden');
+        } else {
+          b.classList.remove('text-purple-700', 'border-b-2', 'border-purple-700', 'font-semibold');
+          b.classList.add('text-gray-500');
+          c.classList.add('hidden');
+        }
+      });
+    });
+  });
+    // Income vs Employment Correlation (Scatter Chart)
+    const ctxScatter = document.getElementById('incomeEmploymentChart').getContext('2d');
+    new Chart(ctxScatter, {
+      type: 'scatter',
+      data: {
+        datasets: [{
+          label: 'Income',
+          data: [
+            {x: 65, y: 16000},
+            {x: 72, y: 20000},
+            {x: 78, y: 24000},
+            {x: 85, y: 32000},
+            {x: 92, y: 26000},
+            {x: 68, y: 18000},
+            {x: 75, y: 23000}
+          ],
+          backgroundColor: '#8B5CF6',
+          pointRadius: 6
+        }]
+      },
+      options: {
+        scales: {
+          x: {
+            title: { display: true, text: 'Employment Rate (%)' },
+            min: 60,
+            max: 100,
+            ticks: { callback: v => v + '%' }
+          },
+          y: {
+            title: { display: true, text: 'Income (₱)' },
+            min: 0,
+            max: 35000,
+            ticks: { callback: v => '₱' + v }
+          }
+        },
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+
+    // Skills Market Demand Trends (Stacked Area Chart)
+    const ctxArea = document.getElementById('skillsDemandChart').getContext('2d');
+    new Chart(ctxArea, {
+      type: 'line',
+      data: {
+        labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [
+          {
+            label: 'Programming',
+            data: [90, 95, 100, 105, 110, 115],
+            backgroundColor: 'rgba(59, 130, 246, 0.4)',
+            borderColor: '#3B82F6',
+            fill: true
+          },
+          {
+            label: 'Electrical',
+            data: [90, 92, 95, 98, 100, 102],
+            backgroundColor: 'rgba(16, 185, 129, 0.4)',
+            borderColor: '#10B981',
+            fill: true
+          },
+          {
+            label: 'Food Processing',
+            data: [60, 65, 70, 75, 80, 85],
+            backgroundColor: 'rgba(245, 158, 11, 0.4)',
+            borderColor: '#F59E0B',
+            fill: true
+          },
+          {
+            label: 'Construction',
+            data: [50, 55, 60, 65, 70, 75],
+            backgroundColor: 'rgba(239, 68, 68, 0.4)',
+            borderColor: '#EF4444',
+            fill: true
+          }
+        ]
+      },
+      options: {
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          x: { grid: { color: '#e5e7eb' } },
+          y: { grid: { color: '#e5e7eb' } }
+        }
+      }
+    });
+    
+
+
+    // Employment Outcomes by Cohort (Bar Chart)
+    const cohortEmploymentCtx = document.getElementById('cohortEmploymentChart').getContext('2d');
+    new Chart(cohortEmploymentCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Batch 2023-01', 'Batch 2023-02', 'Batch 2023-03', 'Batch 2023-04', 'Batch 2024-01'],
+        datasets: [
+          {
+            label: 'Employed',
+            data: [38, 41, 32, 45, 40],
+            backgroundColor: '#10B981'
+          },
+          {
+            label: 'Total Participants',
+            data: [45, 52, 38, 61, 47],
+            backgroundColor: '#D1D5DB'
+          }
+        ]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: '#e5e7eb' } },
+          y: { beginAtZero: true, grid: { color: '#e5e7eb' } }
+        }
+      }
+    });
+
+    // Average Income by Cohort (Line Chart)
+    const cohortIncomeCtx = document.getElementById('cohortIncomeChart').getContext('2d');
+    new Chart(cohortIncomeCtx, {
+      type: 'line',
+      data: {
+        labels: ['Batch 2023-01', 'Batch 2023-02', 'Batch 2023-03', 'Batch 2023-04', 'Batch 2024-01'],
+        datasets: [{
+          label: 'Average Income',
+          data: [22500, 24000, 28000, 23000, 27000],
+          borderColor: '#A78BFA',
+          backgroundColor: 'rgba(167,139,250,0.1)',
+          fill: false,
+          tension: 0.3,
+          pointBackgroundColor: '#A78BFA',
+          pointBorderColor: '#A78BFA'
+        }]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: '#e5e7eb' } },
+          y: {
+            beginAtZero: true,
+            grid: { color: '#e5e7eb' },
+            ticks: { callback: v => '₱' + v }
+          }
+        }
+      }
+    });
+
+    // Skills Demand Trends (Line Chart)
+    const skillsDemandTrendsCtx = document.getElementById('skillsDemandTrendsChart').getContext('2d');
+    new Chart(skillsDemandTrendsCtx, {
+      type: 'line',
+      data: {
+        labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [
+          {
+            label: 'Automotive',
+            data: [80, 82, 83, 84, 85, 88],
+            borderColor: '#F59E0B',
+            backgroundColor: 'rgba(245, 158, 11, 0.1)',
+            fill: false,
+            pointBackgroundColor: '#F59E0B'
+          },
+          {
+            label: 'Construction',
+            data: [75, 77, 78, 79, 80, 83],
+            borderColor: '#EF4444',
+            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+            fill: false,
+            pointBackgroundColor: '#EF4444'
+          },
+          {
+            label: 'Electrical',
+            data: [90, 91, 92, 93, 94, 94],
+            borderColor: '#10B981',
+            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+            fill: false,
+            pointBackgroundColor: '#10B981'
+          },
+          {
+            label: 'Food Processing',
+            data: [60, 62, 64, 66, 68, 71],
+            borderColor: '#A78BFA',
+            backgroundColor: 'rgba(167, 139, 250, 0.1)',
+            fill: false,
+            pointBackgroundColor: '#A78BFA'
+          },
+          {
+            label: 'Programming',
+            data: [95, 96, 97, 98, 99, 99],
+            borderColor: '#3B82F6',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            fill: false,
+            pointBackgroundColor: '#3B82F6'
+          }
+        ]
+      },
+      options: {
+        plugins: {
+          legend: { display: true }
+        },
+        scales: {
+          x: { grid: { color: '#e5e7eb' } },
+          y: { grid: { color: '#e5e7eb' }, min: 50, max: 100 }
+        }
+      }
+    });
+
+  const skillsGapCtx = document.getElementById('skillsGapChart').getContext('2d');
+  new Chart(skillsGapCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Programming', 'Electrical', 'Automotive', 'Food Processing'],
+      datasets: [
+        {
+          label: 'Current Supply',
+          data: [45, 78, 65, 58],
+          backgroundColor: '#D1D5DB'
+        },
+        {
+          label: 'Market Demand',
+          data: [99, 94, 88, 71],
+          backgroundColor: '#3B82F6'
+        },
+        {
+          label: 'Skills Gap',
+          data: [54, 16, 23, 13],
+          backgroundColor: '#EF4444'
+        }
+      ]
+    },
+    options: {
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { color: '#e5e7eb' } },
+        y: { beginAtZero: true, grid: { color: '#e5e7eb' } }
+      }
+    }
+});
+
+    // Regional Performance Chart (Horizontal Bar Chart)
+    const regionalPerformanceCtx = document.getElementById('regionalPerformanceChart').getContext('2d');
+    new Chart(regionalPerformanceCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Abra', 'Ifugao', 'Apayao', 'Kalinga', 'Mountain Province', 'Benguet'],
+        datasets: [
+          {
+            label: 'Employment Rate %',
+            data: [70, 74, 72, 78, 75, 82],
+            backgroundColor: '#3B82F6'
+          },
+          {
+            label: 'Total Participants',
+            data: [120, 98, 87, 189, 156, 245],
+            backgroundColor: '#10B981'
+          }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { beginAtZero: true, grid: { color: '#e5e7eb' } },
+          y: { grid: { color: '#e5e7eb' } }
+        }
+      }
+    });
+
+    // Program Retention & Completion Chart
+    const retentionCtx = document.getElementById('retentionChart').getContext('2d');
+    new Chart(retentionCtx, {
+      type: 'bar',
+      data: {
+        labels: [
+          'Electrical Installation',
+          'Automotive Servicing',
+          'Computer Programming',
+          'Construction',
+          'Food Processing'
+        ],
+        datasets: [
+          {
+            label: 'Completed',
+            data: [90, 80, 65, 95, 60],
+            backgroundColor: '#3B82F6'
+          },
+          {
+            label: 'Employed',
+            data: [78, 75, 60, 70, 35],
+            backgroundColor: '#10B981'
+          },
+          {
+            label: 'Enrolled',
+            data: [100, 85, 80, 100, 65],
+            backgroundColor: '#D1D5DB'
+          }
+        ]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        scales: {
+          x: {
+            grid: { color: '#e5e7eb' },
+            ticks: { color: '#111827', font: { size: 13 }, maxRotation: 45, minRotation: 45 }
+          },
+          y: {
+            beginAtZero: true,
+            grid: { color: '#e5e7eb' },
+            ticks: { color: '#111827', font: { size: 13 } }
+          }
+        }
+      }
+    });
+
+
+  </script>
+
+  </body>
+</html>
