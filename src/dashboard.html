@@ -8,45 +8,45 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-piechart-outlabels@1.1.0/dist/chartjs-plugin-piechart-outlabels.min.js"></script>
 </head>
-<body class="bg-gra y-100 font-sans">
+<body class="bg-gradient-to-br from-blue-100 via-white to-yellow-50 font-sans">
 
   <div class="flex min-h-screen">
 
   <!-- Ito yung start ng code for Sidebar -->
-  <aside class="w-64 bg-white text-gray-800 flex flex-col">
-  <div class="flex items-center space-x-4 px-6 py-4 border-b border-gray-400 bg-blue-700">
-    <img src="../images/homesidebar.png" alt="Profile" class="w-12 h-12 rounded-full border-4 border-white mb-1">
-    <span class="font-bold text-lg text-white">Partner Portal</span>
+  <aside class="w-64 bg-gradient-to-b from-blue-700 to-blue-500 text-white flex flex-col shadow-xl">
+  <div class="flex items-center space-x-4 px-6 py-4 border-b border-blue-400 bg-blue-700">
+    <img src="../images/homesidebar.png" alt="Profile" class="w-12 h-12 rounded-full border-4 border-yellow-400 mb-1">
+    <span class="font-bold text-lg text-yellow-300 tracking-wide">Partner Portal</span>
   </div>
 
   <!-- Profile -->
-  <div class="px-6 py-6 border-b border-gray-300">
+  <div class="px-6 py-6 border-b border-blue-400">
     <div class="flex items-center space-x-4">
-      <img src="../images/personimage.png" alt="Profile" class="w-14 h-14 rounded-full border-2 border-gray-400 mb-0">
+      <img src="../images/personimage.png" alt="Profile" class="w-14 h-14 rounded-full border-2 border-yellow-400 mb-0">
       <div>
-        <p class="font-semibold">Regional Office</p>
-        <p class="text-sm text-gray-500">Cordillera</p>
+        <p class="font-semibold text-yellow-200">Regional Office</p>
+        <p class="text-sm text-blue-100">Cordillera</p>
       </div>
     </div>
   </div>
 
     <!-- Menu -->
   <nav class="flex-1 px-4 py-6 space-y-2">
-    <a href="dashboard.html" class="flex items-center px-3 py-2 rounded hover:bg-gray-100 bg-gray-50">
+    <a href="dashboard.html" class="flex items-center px-3 py-2 rounded-lg bg-yellow-300 text-blue-900 font-semibold shadow hover:bg-yellow-400 transition">
       <span class="ml-3">Dashboard</span>
     </a>
-    <a href="analytics.html" class="flex items-center px-3 py-2 rounded hover:bg-gray-100">
+    <a href="analytics.html" class="flex items-center px-3 py-2 rounded-lg hover:bg-blue-600 hover:text-yellow-200 transition">
       <span class="ml-3">Analytics</span>
     </a>
-    <a href="#" class="flex items-center px-3 py-2 rounded hover:bg-gray-100">
+    <a href="#" class="flex items-center px-3 py-2 rounded-lg hover:bg-blue-600 hover:text-yellow-200 transition">
       <span class="ml-3">Reports</span>
     </a>
   </nav>
 
     <!-- Footer -->
-    <div class="px-4 py-4 border-t border-gray-300">
-      <a href="#" class="flex items-center px-3 py-2 rounded hover:bg-gray-100"> <span class="ml-3">Settings</span></a>
-      <a href="#" class="flex items-center px-3 py-2 rounded hover:bg-gray-100"> <span class="ml-3">Sign Out</span></a>
+    <div class="px-4 py-4 border-t border-blue-400">
+      <a href="#" class="flex items-center px-3 py-2 rounded-lg hover:bg-yellow-200 hover:text-blue-900 transition"> <span class="ml-3">Settings</span></a>
+      <a href="#" class="flex items-center px-3 py-2 rounded-lg hover:bg-yellow-200 hover:text-blue-900 transition"> <span class="ml-3">Sign Out</span></a>
     </div>
   </aside>
 
@@ -55,15 +55,15 @@
     <div class="flex-1 flex flex-col">
 
     <!-- Topbar -->
-    <header class="flex justify-between items-center bg-blue-700 px-8 py-4 shadow">
+  <header class="flex justify-between items-center bg-gradient-to-r from-blue-700 to-yellow-400 px-8 py-4 shadow-lg">
       <div>
-        <h1 class="text-2xl font-bold text-white">TESDA CAR Dashboard</h1>
-        <p class="text-white text-sm">Monitoring skills development and employment outcomes</p>
+  <h1 class="text-3xl font-extrabold text-yellow-100 drop-shadow">TESDA CAR Dashboard</h1>
+  <p class="text-yellow-50 text-base font-medium">Monitoring skills development and employment outcomes</p>
       </div>
       <div class="flex items-center space-x-4">
     
-        <button class="p-2 bg-blue-600 text-white rounded-full">🔔</button>
-        <img src="../images/personimage.png" class="w-9 h-9 rounded-full border" alt="User">
+  <button class="p-2 bg-yellow-300 text-blue-900 rounded-full shadow hover:bg-yellow-400 transition">🔔</button>
+  <img src="../images/personimage.png" class="w-9 h-9 rounded-full border-2 border-yellow-300" alt="User">
       </div>
     </header>
 
@@ -71,18 +71,18 @@
       <main class="p-8 flex-1 overflow-y-auto">
 
         <!-- Filters -->
-        <div class="bg-white p-4 rounded-lg shadow mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <select class="border p-2 rounded-lg">
+  <div class="bg-blue-50 p-4 rounded-lg shadow mb-6 grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-200">
+          <select class="border-2 border-blue-300 p-2 rounded-lg focus:ring-2 focus:ring-yellow-300">
             <option>Last 3 Months</option>
             <option>Last 6 Months</option>
             <option>Last Year</option>
           </select>
-          <select class="border p-2 rounded-lg">
+          <select class="border-2 border-blue-300 p-2 rounded-lg focus:ring-2 focus:ring-yellow-300">
             <option>All Programs</option>
             <option>Technical Skills</option>
             <option>Soft Skills</option>
           </select>
-          <select class="border p-2 rounded-lg">
+          <select class="border-2 border-blue-300 p-2 rounded-lg focus:ring-2 focus:ring-yellow-300">
             <option>All Provinces</option>
             <option>Benguet</option>
             <option>Ifugao</option>
@@ -91,16 +91,16 @@
         </div>
 
         <!-- Ito yung 4 Stat Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
           <!-- Employment Rate -->
-          <div class="bg-white p-6 rounded-lg shadow flex items-center">
-            <div class="bg-green-500 rounded-lg p-3 mr-4 flex items-center justify-center">
+          <div class="bg-white p-6 rounded-xl shadow-lg flex items-center border-2 border-yellow-200">
+            <div class="bg-yellow-300 rounded-lg p-3 mr-4 flex items-center justify-center shadow">
               <img src="../images/employmentrateicon.png" class="w-7 h-7 " alt="employmentrateicon">
             </div>
             <div>
-              <p class="text-2xl font-bold text-gray-900">78.5%</p>
-              <p class="text-gray-500">Employment Rate</p>
-              <p class="text-green-600 text-sm flex items-center mt-1">
+              <p class="text-2xl font-extrabold text-blue-900">78.5%</p>
+              <p class="text-blue-800 font-semibold">Employment Rate</p>
+              <p class="text-yellow-700 text-sm flex items-center mt-1">
                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 16l7-7 7 7"/>
               </svg>
@@ -109,14 +109,14 @@
             </div>
           </div>
           <!-- Income Growth -->
-          <div class="bg-white p-6 rounded-lg shadow flex items-center">
-            <div class="bg-blue-600 rounded-lg p-3 mr-4 flex items-center justify-center">
+          <div class="bg-white p-6 rounded-xl shadow-lg flex items-center border-2 border-blue-200">
+            <div class="bg-blue-500 rounded-lg p-3 mr-4 flex items-center justify-center shadow">
               <img src="../images/incomerateicon.png" class="w-7 h-7 " alt="incomerateicon">
             </div>
             <div>
-              <p class="text-2xl font-bold text-gray-900">₱24,500</p>
-              <p class="text-gray-500">Income Growth</p>
-              <p class="text-green-600 text-sm flex items-center mt-1">
+              <p class="text-2xl font-extrabold text-blue-900">₱24,500</p>
+              <p class="text-blue-800 font-semibold">Income Growth</p>
+              <p class="text-blue-700 text-sm flex items-center mt-1">
               <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 16l7-7 7 7"/>
               </svg>
@@ -125,14 +125,14 @@
             </div>
           </div>
           <!-- Satisfaction Score -->
-          <div class="bg-white p-6 rounded-lg shadow flex items-center">
-            <div class="bg-yellow-500 rounded-lg p-3 mr-4 flex items-center justify-center">
+          <div class="bg-white p-6 rounded-xl shadow-lg flex items-center border-2 border-yellow-300">
+            <div class="bg-yellow-400 rounded-lg p-3 mr-4 flex items-center justify-center shadow">
               <img src="../images/satisfactionscoreicon.png" class="w-7 h-7 " alt="satisfactionscoreicon">
             </div>
             <div>
-              <p class="text-2xl font-bold text-gray-900">4.7/5</p>
-              <p class="text-gray-500">Satisfaction Score</p>
-              <p class="text-green-600 text-sm flex items-center mt-1">
+              <p class="text-2xl font-extrabold text-blue-900">4.7/5</p>
+              <p class="text-blue-800 font-semibold">Satisfaction Score</p>
+              <p class="text-yellow-700 text-sm flex items-center mt-1">
               <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 16l7-7 7 7"/>
               </svg>
@@ -141,14 +141,14 @@
             </div>
           </div>
           <!-- Active Participants -->
-          <div class="bg-white p-6 rounded-lg shadow flex items-center">
-            <div class="bg-purple-500 rounded-lg p-3 mr-4 flex items-center justify-center">
+          <div class="bg-white p-6 rounded-xl shadow-lg flex items-center border-2 border-blue-300">
+            <div class="bg-blue-300 rounded-lg p-3 mr-4 flex items-center justify-center shadow">
               <img src="../images/activeparticipanticon.png" class="w-7 h-7 " alt="activeparticipanticon">
             </div>
             <div>
-              <p class="text-2xl font-bold text-gray-900">1,247</p>
-              <p class="text-gray-500">Active Participants</p>
-              <p class="text-green-600 text-sm flex items-center mt-1">
+              <p class="text-2xl font-extrabold text-blue-900">1,247</p>
+              <p class="text-blue-800 font-semibold">Active Participants</p>
+              <p class="text-blue-700 text-sm flex items-center mt-1">
               <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 16l7-7 7 7"/>
               </svg>
@@ -159,74 +159,74 @@
         </div>
 
       <!-- This section is for the Charts -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- This is for the for Employment Rate Chart -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h2 class="text-lg font-semibold mb-4">Employment Trend</h2>
+        <div class="bg-blue-50 p-6 rounded-xl shadow-lg border border-blue-200">
+          <h2 class="text-lg font-semibold mb-4 text-blue-800">Employment Trend</h2>
           <canvas id="employmentChart"></canvas>
         </div>
 
         <!-- This is for the for Program Disrtibution Chart -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h2 class="text-lg font-semibold mb-4">Program Distribution</h2>
+        <div class="bg-yellow-50 p-6 rounded-xl shadow-lg border border-yellow-200">
+          <h2 class="text-lg font-semibold mb-4 text-yellow-700">Program Distribution</h2>
           <canvas id="programChart"></canvas>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         <!-- This is for the Top Skills by Employment Rate -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h2 class="text-lg font-semibold mb-4">Top Skills by Employment Rate</h2>
+        <div class="bg-blue-50 p-6 rounded-xl shadow-lg border border-blue-200">
+          <h2 class="text-lg font-semibold mb-4 text-blue-800">Top Skills by Employment Rate</h2>
           <canvas id="skillsChart"></canvas>
         </div>
 
         <!-- This is for the Average Income Growth -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h2 class="text-lg font-semibold mb-4">Average Income Growth</h2>
+        <div class="bg-yellow-50 p-6 rounded-xl shadow-lg border border-yellow-200">
+          <h2 class="text-lg font-semibold mb-4 text-yellow-700">Average Income Growth</h2>
           <canvas id="incomeChart"></canvas>
         </div>
       </div>
 
         <!-- This is for the Executive Summary Section -->
-        <div class="bg-white p-6 rounded-lg shadow mt-6 mb-8">
-          <h2 class="text-lg font-semibold mb-4">Executive Summary</h2>
-          <p><span class="font-bold">Performance Highlights:</span> The Cordillera Administrative Region has demonstrated exceptional progress in skills development and employment outcomes. Employment rates have increased by 5.2% quarter-over-quarter, reaching 78.5% - surpassing the national average of 72%.</p>
-          <p class="mt-2"><span class="font-bold">Income Impact:</span> Participants have experienced significant income growth, with average earnings increasing from ₱8,500 pre-training to ₱24,500 twelve months post-completion - a remarkable 188% increase.</p>
-          <p class="mt-2"><span class="font-bold">Top Performing Programs:</span> Computer Programming leads with 88% employment rate, followed by Electrical Installation at 82%. Technical skills programs continue to show strong market demand.</p>
-          <p class="mt-2"><span class="font-bold">Regional Insights:</span> Benguet province shows the highest participation rates, while Mountain Province demonstrates the strongest post-training income growth. Satisfaction scores remain consistently high at 4.7/5.</p>
+        <div class="bg-gradient-to-r from-blue-100 to-yellow-100 p-6 rounded-xl shadow-lg mt-6 mb-8 border border-blue-200">
+          <h2 class="text-lg font-semibold mb-4 text-blue-800">Executive Summary</h2>
+          <p><span class="font-bold text-yellow-700">Performance Highlights:</span> The Cordillera Administrative Region has demonstrated exceptional progress in skills development and employment outcomes. Employment rates have increased by 5.2% quarter-over-quarter, reaching 78.5% - surpassing the national average of 72%.</p>
+          <p class="mt-2"><span class="font-bold text-yellow-700">Income Impact:</span> Participants have experienced significant income growth, with average earnings increasing from ₱8,500 pre-training to ₱24,500 twelve months post-completion - a remarkable 188% increase.</p>
+          <p class="mt-2"><span class="font-bold text-yellow-700">Top Performing Programs:</span> Computer Programming leads with 88% employment rate, followed by Electrical Installation at 82%. Technical skills programs continue to show strong market demand.</p>
+          <p class="mt-2"><span class="font-bold text-yellow-700">Regional Insights:</span> Benguet province shows the highest participation rates, while Mountain Province demonstrates the strongest post-training income growth. Satisfaction scores remain consistently high at 4.7/5.</p>
         </div>
 
         <!-- Quick Actions Section -->
-        <div class="bg-white p-6 rounded-lg shadow mb-6">
-          <h2 class="text-lg font-semibold mb-4">Quick Actions</h2>
+        <div class="bg-gradient-to-r from-blue-100 to-yellow-100 p-6 rounded-xl shadow-lg mb-6 border border-yellow-200">
+          <h2 class="text-lg font-semibold mb-4 text-blue-800">Quick Actions</h2>
           <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
             <!-- Export Report -->
-            <div class="border-2 border-dashed rounded-lg flex flex-col items-center justify-center py-8 hover:bg-gray-50 cursor-pointer transition">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="border-2 border-dashed border-yellow-300 rounded-lg flex flex-col items-center justify-center py-8 hover:bg-yellow-100 cursor-pointer transition shadow">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
               </svg>
-              <span class="text-gray-600 font-medium">Export Report</span>
+              <span class="text-blue-800 font-medium">Export Report</span>
             </div>
             <!-- Email Summary -->
-            <div class="border-2 border-dashed rounded-lg flex flex-col items-center justify-center py-8 hover:bg-gray-50 cursor-pointer transition">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="border-2 border-dashed border-yellow-300 rounded-lg flex flex-col items-center justify-center py-8 hover:bg-yellow-100 cursor-pointer transition shadow">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 0a4 4 0 01-8 0m8 0V8a4 4 0 00-8 0v4m8 0l-8 8"/>
               </svg>
-              <span class="text-gray-600 font-medium">Email Summary</span>
+              <span class="text-blue-800 font-medium">Email Summary</span>
             </div>
             <!-- Schedule Review -->
-            <div class="border-2 border-dashed rounded-lg flex flex-col items-center justify-center py-8 hover:bg-gray-50 cursor-pointer transition">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="border-2 border-dashed border-yellow-300 rounded-lg flex flex-col items-center justify-center py-8 hover:bg-yellow-100 cursor-pointer transition shadow">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10m-10 4h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
               </svg>
-              <span class="text-gray-600 font-medium">Schedule Review</span>
+              <span class="text-blue-800 font-medium">Schedule Review</span>
             </div>
             <!-- Customize View -->
-            <div class="border-2 border-dashed rounded-lg flex flex-col items-center justify-center py-8 hover:bg-gray-50 cursor-pointer transition">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="border-2 border-dashed border-yellow-300 rounded-lg flex flex-col items-center justify-center py-8 hover:bg-yellow-100 cursor-pointer transition shadow">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
-              <span class="text-gray-600 font-medium">Customize View</span>
+              <span class="text-blue-800 font-medium">Customize View</span>
             </div>
           </div>
         </div>
